@@ -29,7 +29,7 @@ class HiNetHichannel extends Request
 
         $this->_hichannelChannelName = $hichannelChannelName;
 
-        $this->_hichannel = new hichannelApi($hichannelChannelName);
+        $this->_hichannel = new HichannelApi($hichannelChannelName);
         $this->_loadApi = false;
     }
 
