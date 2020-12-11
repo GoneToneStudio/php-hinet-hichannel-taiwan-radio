@@ -29,7 +29,8 @@
     "require": {
         "php": ">=7.2",
         "chrisyue/php-m3u8": "^3.4",
-        "guzzlehttp/guzzle": "^7.2"
+        "guzzlehttp/guzzle": "^7.2",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {

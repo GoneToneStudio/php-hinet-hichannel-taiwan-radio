@@ -23,19 +23,32 @@ class Request
     protected $_client;
 
     protected $_hichannelUrl = "https://hichannel.hinet.net";
+    protected $_userAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36";
 
     /**
      * Request constructor.
+     *
+     * @param ?Proxy $proxy 代理伺服器 (預設不使用代理)
      */
-    protected function __construct() {
-        $userAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36";
-        $this->_client = new Client([
-            "verify" => false,
-            "headers" => [
-                "User-Agent" => $userAgent,
-                "Referer" => "https://hichannel.hinet.net/radio/index.do"
-            ]
-        ]);
+    protected function __construct(?Proxy $proxy = null) {
+        if ($proxy) {
+            $this->_client = new Client([
+                "verify" => false,
+                "headers" => [
+                    "User-Agent" => $this->_userAgent,
+                    "Referer" => "https://hichannel.hinet.net/radio/index.do"
+                ],
+                "proxy" => $proxy
+            ]);
+        } else {
+            $this->_client = new Client([
+                "verify" => false,
+                "headers" => [
+                    "User-Agent" => $this->_userAgent,
+                    "Referer" => "https://hichannel.hinet.net/radio/index.do"
+                ]
+            ]);
+        }
     }
 
     /**
