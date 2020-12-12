@@ -23,14 +23,13 @@ class HiNetHichannel extends Request
      * HiNetHichannel constructor.
      *
      * @param string $hichannelChannelName Hichannel 頻道名稱
-     * @param ?Proxy $proxy                代理伺服器 (預設不使用代理)
      */
-    public function __construct(string $hichannelChannelName, ?Proxy $proxy = null) {
-        parent::__construct($proxy);
+    public function __construct(string $hichannelChannelName) {
+        parent::__construct();
 
         $this->_hichannelChannelName = $hichannelChannelName;
 
-        $this->_hichannel = new HichannelApi($hichannelChannelName, $proxy);
+        $this->_hichannel = new HichannelApi($hichannelChannelName);
         $this->_loadApi = false;
     }
 
@@ -44,7 +43,7 @@ class HiNetHichannel extends Request
         if ($api) {
             $this->_loadApi = true;
         } else {
-            throw new Exception("Hichannel 頻道名稱「" . $this->_hichannelChannelName . "」廣播電台 API 加載失敗。");
+            throw new Exception("Hichannel 頻道名稱「" . $this->_hichannelChannelName . "」廣播電台找不到或資料取得失敗。");
         }
     }
 

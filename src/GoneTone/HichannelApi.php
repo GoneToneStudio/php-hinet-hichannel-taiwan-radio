@@ -37,10 +37,9 @@ class HichannelApi extends Request
      * HichannelApi constructor.
      *
      * @param string $hichannelChannelName Hichannel 頻道名稱
-     * @param ?Proxy $proxy                代理伺服器 (預設不使用代理)
      */
-    public function __construct(string $hichannelChannelName, ?Proxy $proxy = null) {
-        parent::__construct($proxy);
+    public function __construct(string $hichannelChannelName) {
+        parent::__construct();
 
         $this->_hichannelChannelName = $hichannelChannelName;
     }
