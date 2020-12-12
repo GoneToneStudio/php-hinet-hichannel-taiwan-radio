@@ -163,6 +163,21 @@ try {
 ### 網頁播放電台範例
 請看 [examples/webpage/play_radio.php](examples/webpage/play_radio.php)
 
+## 代理 (Proxy)
+如果運行此程式的伺服器不在台灣，請設定台灣的 Proxy 伺服器，否則取得的串流網址會驗證失敗 (HTTP 403 Forbidden)，但如果播放端 IP 在國外一樣會被阻擋就是了。
+```php
+use GoneTone\HiNetHichannel;
+use GoneTone\Proxy;
+
+require_once(dirname(__FILE__) . "/vendor/autoload.php");
+
+/* 連線到 Proxy 伺服器 */
+$proxy = new Proxy("主機名", 3128, "http");
+//$proxy->login("帳號", "密碼"); //如果 Proxy 伺服器需要驗證，請調用這登入
+
+$hichannel = new HiNetHichannel("電台名稱", $proxy);
+```
+
 ## 補充
 如果需要取得新資料，必須再次調用 `$hichannel->loadApi()` 才會取得最新資料。
 ```php
