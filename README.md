@@ -10,8 +10,12 @@ Node.js 版本：[https://github.com/GoneToneStudio/node-hinet-hichannel-taiwan-
 ## 問題
 如果發現任何 BUG，請在此回報：[https://github.com/GoneToneStudio/php-hinet-hichannel-taiwan-radio/issues](https://github.com/GoneToneStudio/php-hinet-hichannel-taiwan-radio/issues)
 
+## 要求
+- PHP 7.2 或更高版本
+
 ## 安裝
-### Composer
+使用 [Composer](https://getcomposer.org/) 來安裝 HiNet hichannel 台灣電台 (PHP 套件)。
+
     composer require gonetone/hinet-hichannel-taiwan-radio
 
 ## 取得 Hichannel 頻道名稱方法
@@ -161,7 +165,7 @@ try {
 ```
 
 ### 網頁播放電台範例
-請看 [examples/webpage/play_radio.php](examples/webpage/play_radio.php)
+請看 [examples/webpage/play_radio.php](examples/webpage/play_radio.php) 。
 
 ## 代理 (Proxy)
 如果運行此程式的伺服器不在台灣，請設定台灣的 Proxy 伺服器，否則取得的串流網址會驗證失敗 (HTTP 403 Forbidden)，但如果播放端 IP 和用來取得 m3u8 串流網址的伺服器 IP 不同一樣會被阻擋就是了，可以嘗試在伺服端處理好在串流給播放端，就二次串流。
