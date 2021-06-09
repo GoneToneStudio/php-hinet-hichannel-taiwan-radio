@@ -95,7 +95,7 @@ class HichannelApi extends Request
                 $parser = new ParserFacade();
                 $parserM3u8Url = $parser->parse(new TextStream($m3u8Data));
 
-                return $parseUrl["scheme"] . "://" . $parseUrl["host"] . str_replace("index.m3u8", $parserM3u8Url["EXT-X-STREAM-INF"][0]["uri"], $parseUrl["path"]);
+                return $parseUrl["scheme"] . "://" . $parseUrl["host"] . str_replace("playlist.m3u8", $parserM3u8Url["EXT-X-STREAM-INF"][0]["uri"], $parseUrl["path"]);
             } catch (Exception $e) {
                 throw new Exception($e->getMessage());
             }
