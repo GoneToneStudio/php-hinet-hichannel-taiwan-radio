@@ -2,10 +2,11 @@ name: CI
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
   schedule:
-    - cron:  '0 0 * * 6'
+    - cron: '0 0 * * 6'
 
 jobs:
   test:
@@ -13,8 +14,8 @@ jobs:
 
     strategy:
       matrix:
-        operating-system: [ubuntu-latest]
-        php-versions: ['7.2', '7.3', '7.4']
+        operating-system: [ ubuntu-latest ]
+        php-versions: [ '7.2', '7.3', '7.4' ]
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
