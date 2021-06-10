@@ -12,6 +12,8 @@
  */
 
 use GoneTone\HiNetHichannel;
+use GoneTone\Proxy;
+
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -25,7 +27,9 @@ class HiNetHichannelTest extends TestCase
      * @throws Exception
      */
     protected function setUp(): void {
-        $this->_hichannel = new HiNetHichannel("KISS RADIO 大眾廣播電台");
+        $proxy = new Proxy("gonetone.reh.tw", 3128, "http");
+        $proxy->login("Test", "29022716");
+        $this->_hichannel = new HiNetHichannel("KISS RADIO 大眾廣播電台", $proxy);
         $this->_hichannel->loadApi();
     }
 
