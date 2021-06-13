@@ -17,7 +17,7 @@ use GoneTone\Proxy;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class ShrinkURLTest
+ * Class HiNetHichannelTest
  */
 class HiNetHichannelTest extends TestCase
 {
