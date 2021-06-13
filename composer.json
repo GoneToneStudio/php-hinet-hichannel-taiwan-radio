@@ -42,6 +42,6 @@
         "example": "@php ./examples/cli/all_demo.php"
     },
     "require-dev": {
-        "phpunit/phpunit": "8"
+        "phpunit/phpunit": "8.5.16"
     }
 }
