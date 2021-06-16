@@ -17,10 +17,6 @@ jobs:
         operating-system: [ ubuntu-latest ]
         php-versions: [ '7.2', '7.3', '7.4', '8.0' ]
 
-    env:
-      PROXY_TEST_USERNAME: ${{ secrets.PROXY_TEST_USERNAME }}
-      PROXY_TEST_PASSWORD: ${{ secrets.PROXY_TEST_PASSWORD }}
-
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
       - name: Checkout
@@ -38,3 +34,6 @@ jobs:
           php_version: ${{ matrix.php-versions }}
           configuration: phpunit.xml
           bootstrap: vendor/autoload.php
+        env:
+          PROXY_TEST_USERNAME: ${{ secrets.PROXY_TEST_USERNAME }}
+          PROXY_TEST_PASSWORD: ${{ secrets.PROXY_TEST_PASSWORD }}
