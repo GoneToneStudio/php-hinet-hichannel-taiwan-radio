@@ -28,7 +28,7 @@ class HiNetHichannelTest extends TestCase
      */
     protected function setUp(): void {
         $proxy = new Proxy("gonetone.reh.tw", 3128, "http");
-        $proxy->login("Test", "29022716");
+        $proxy->login($_ENV["PROXY_TEST_USERNAME"], $_ENV["PROXY_TEST_PASSWORD"]);
         $this->_hichannel = new HiNetHichannel("KISS RADIO 大眾廣播電台", $proxy);
         $this->_hichannel->loadApi();
     }
